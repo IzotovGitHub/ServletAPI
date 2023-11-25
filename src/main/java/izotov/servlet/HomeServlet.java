@@ -1,5 +1,8 @@
-package izotov;
+package izotov.servlet;
 
+import izotov.servlet.route.Route;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -17,14 +20,18 @@ public class HomeServlet extends HttpServlet {
     
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.getWriter().write("Method service enter\n");
         super.service(req, resp);
-        resp.getWriter().write("Method service exit\n");
     }
     
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        resp.getWriter().write("Method doGet\n");
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+        RequestDispatcher dispatcher = req.getRequestDispatcher(Route.JSP.HOME);
+        dispatcher.forward(req, resp);
+    }
+        @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+        RequestDispatcher dispatcher = req.getRequestDispatcher(Route.JSP.LOGIN);
+        dispatcher.forward(req, resp);
     }
     
     @Override

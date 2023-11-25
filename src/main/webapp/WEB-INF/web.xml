@@ -5,10 +5,18 @@
          version="4.0">
     <servlet>
         <servlet-name>home</servlet-name>
-        <servlet-class>izotov.HomeServlet</servlet-class>
+        <servlet-class>izotov.servlet.HomeServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>home</servlet-name>
         <url-pattern>/</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>auth</servlet-name>
+        <servlet-class>izotov.servlet.AuthServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>auth</servlet-name>
+        <url-pattern>/auth</url-pattern>
     </servlet-mapping>
 </web-app>
